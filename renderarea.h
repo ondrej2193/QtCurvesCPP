@@ -30,6 +30,8 @@ signals:
 
 public slots:
 private:
+    QPointF compute_astroid (float t);
+private:
     QColor mBackGroundColor;
     QColor mShapeColor;
     ShapeType mShape;
