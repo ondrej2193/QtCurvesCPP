@@ -43,6 +43,11 @@ int RenderArea::on_shape_changed ()
             mIntervalLength = 2* M_PI;
             mStepCount = 256;
         break;
+        case Line:
+            mScale = 50;
+            mIntervalLength = 1;
+            mStepCount = 128;
+        break;
         default:
            break;
     }
@@ -63,6 +68,9 @@ QPointF RenderArea::compute  (float t)
             break;
         case HuygensCycloid:
             return compute_huygens (t);
+            break;
+        case Line:
+            return compute_line (t);
             break;
         default:
             return QPointF (0,0);
@@ -104,6 +112,11 @@ QPointF RenderArea::compute_huygens (float t)
            float y =  4 * (3 * sin (t) - sin (3 * t));  // Y
 //   );
      return QPointF (x,y);
+}
+
+QPointF RenderArea::compute_line (float t)
+{
+  return QPointF (1 - t, 1 - t);
 }
 
 void RenderArea::paintEvent(QPaintEvent *event)
