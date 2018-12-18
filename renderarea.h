@@ -25,6 +25,9 @@ public:
 
     void setScale (float scale) {mScale = scale; repaint();}
     float scale () {return mScale; }
+
+    void setIntervalLength (float IntervalLength) {mIntervalLength = IntervalLength; repaint();}
+    float IntervalLength () {return mIntervalLength; }
 protected:
     void paintEvent(QPaintEvent *event) Q_DECL_OVERRIDE;
 

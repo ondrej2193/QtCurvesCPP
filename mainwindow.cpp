@@ -60,3 +60,8 @@ void MainWindow::on_spinScale_valueChanged(double scale)
 {
     this->ui->renderArea->setScale(scale);
 }
+
+void MainWindow::on_spinIntervalLength_valueChanged(double IntervalLength)
+{
+    this->ui->renderArea->setIntervalLength(IntervalLength);
+}
