@@ -27,7 +27,8 @@ private slots:
     void on_btnLine_clicked();
 
     void on_spinScale_valueChanged(double arg1);
-
+private:
+    void update_ui();
 private:
     Ui::MainWindow *ui;
 };
