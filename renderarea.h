@@ -23,6 +23,8 @@ public:
     void setShape (ShapeType shape) {mShape = shape; on_shape_changed ();}
     ShapeType shape () const {return mShape;}
 
+    void setScale (float scale) {mScale = scale; repaint();}
+    float scale () {return mScale; }
 protected:
     void paintEvent(QPaintEvent *event) Q_DECL_OVERRIDE;
 
