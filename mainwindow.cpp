@@ -6,7 +6,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    //ui->renderArea->update_ui();
+    update_ui();
 }
 
 MainWindow::~MainWindow()
@@ -17,6 +17,7 @@ MainWindow::~MainWindow()
 void MainWindow::update_ui()
 {
     this->ui->spinScale->setValue (this->ui->renderArea->scale());
+    this->ui->spinIntervalLength->setValue(this->ui->renderArea->IntervalLength());
 }
 
 
