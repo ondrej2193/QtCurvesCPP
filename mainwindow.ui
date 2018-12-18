@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>553</width>
-    <height>422</height>
+    <height>478</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -92,8 +92,8 @@
    <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
-      <x>310</x>
-      <y>230</y>
+      <x>280</x>
+      <y>220</y>
       <width>106</width>
       <height>29</height>
      </rect>
@@ -121,8 +121,8 @@
    <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
-      <x>320</x>
-      <y>270</y>
+      <x>280</x>
+      <y>260</y>
       <width>163</width>
       <height>29</height>
      </rect>
@@ -147,24 +147,50 @@
      </item>
     </layout>
    </widget>
+   <widget class="QPushButton" name="btnBackgroundColor">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>370</y>
+      <width>87</width>
+      <height>29</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Background</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnLineColor">
+    <property name="geometry">
+     <rect>
+      <x>120</x>
+      <y>370</y>
+      <width>87</width>
+      <height>29</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Line Color</string>
+    </property>
+   </widget>
    <widget class="QWidget" name="">
     <property name="geometry">
      <rect>
-      <x>330</x>
-      <y>310</y>
+      <x>280</x>
+      <y>300</y>
       <width>151</width>
       <height>29</height>
      </rect>
     </property>
-    <layout class="QHBoxLayout" name="horizontalLayout_3">
-     <item>
+    <layout class="QGridLayout" name="gridLayout">
+     <item row="0" column="0">
       <widget class="QLabel" name="label_3">
        <property name="text">
         <string>Step Counter:</string>
        </property>
       </widget>
      </item>
-     <item>
+     <item row="0" column="1">
       <widget class="QSpinBox" name="spinCount">
        <property name="maximum">
         <number>10000</number>

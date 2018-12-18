@@ -126,22 +126,6 @@ void RenderArea::paintEvent(QPaintEvent *event)
     painter.begin(this);
     painter.setRenderHint(QPainter::Antialiasing, true);
 
-    switch (mShape) {
-        case Astroid:
-            mBackGroundColor = Qt::red;
-            break;
-        case Cycloid:
-            mBackGroundColor = Qt::green;
-            break;
-        case HypoCycloid:
-            mBackGroundColor = Qt::blue;
-            break;
-        case HuygensCycloid:
-            mBackGroundColor = Qt::yellow;
-            break;
-        default:
-           break;
-    }
     painter.setBrush (mBackGroundColor);
     painter.setPen(mShapeColor);
 
@@ -168,7 +152,5 @@ void RenderArea::paintEvent(QPaintEvent *event)
         painter.drawLine(pixel, prevPixel);
         prevPixel = pixel;
     }
-
-
-    //painter.end(this);
+ //   painter.end(this);
 }
