@@ -77,6 +77,13 @@ void MainWindow::on_spinCount_valueChanged(int StepCount)
 void MainWindow::on_btnBackgroundColor_clicked()
 {
     // open a color picker dialog and change the button,s color
-    QColor color = QColorDialog::getColor(Qt::white, this, "Select Color");
-    ui->renderArea->setBackgroundColor(color);
+    QColor color = QColorDialog::getColor(this->ui->renderArea->backroundColor(), this, "Select Background Color");
+    this->ui->renderArea->setBackgroundColor(color);
+}
+
+void MainWindow::on_btnLineColor_clicked()
+{
+    // open a color picker dialog and change the line,s color
+    QColor color = QColorDialog::getColor(this->ui->renderArea->shapeColor(), this, "Select Color");
+    this->ui->renderArea->setShapeColor(color);
 }

@@ -33,6 +33,8 @@ private slots:
 
     void on_btnBackgroundColor_clicked();
 
+    void on_btnLineColor_clicked();
+
 private:
     void update_ui();
 private:
