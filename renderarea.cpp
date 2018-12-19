@@ -24,17 +24,17 @@ int RenderArea::on_shape_changed ()
 {
     switch (mShape) {
         case Astroid:
-            mScale = 40;
+            mScale = 90;                // Section 3, Lecture 23
             mIntervalLength = 2* M_PI;
             mStepCount = 512;
         break;
         case Cycloid:
-            mScale = 4;
-            mIntervalLength = 6* M_PI;
+            mScale = 10;                // Section 3, Lecture 23
+            mIntervalLength = 4* M_PI;  // Section 3, Lecture 23
             mStepCount = 128;
         break;
         case HypoCycloid:
-            mScale = 15;
+            mScale = 40;                // Section 3, Lecture 23
             mIntervalLength = 2* M_PI;
             mStepCount = 256;
         break;
