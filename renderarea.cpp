@@ -48,6 +48,11 @@ int RenderArea::on_shape_changed ()
             mIntervalLength = 1;
             mStepCount = 128;
         break;
+        case Circle:
+            mScale = 100;
+            mIntervalLength = 2 * M_PI;
+            mStepCount = 512;
+        break;
         default:
            break;
     }
@@ -71,6 +76,9 @@ QPointF RenderArea::compute  (float t)
             break;
         case Line:
             return compute_line (t);
+            break;
+        case Circle:
+            return compute_circle (t);
             break;
         default:
             return QPointF (0,0);
@@ -107,16 +115,21 @@ QPointF RenderArea::compute_hypo (float t)
 QPointF RenderArea::compute_huygens (float t)
 {
 
-//   return QPointF (
-           float x =  4 * (3 * cos (t) - cos (3 * t)); // X
-           float y =  4 * (3 * sin (t) - sin (3 * t));  // Y
-//   );
-     return QPointF (x,y);
+   return QPointF (
+           4 * (3 * cos (t) - cos (3 * t)), // X
+           4 * (3 * sin (t) - sin (3 * t))  // Y
+   );
+
 }
 
 QPointF RenderArea::compute_line (float t)
 {
   return QPointF (1 - t, 1 - t);
+}
+
+QPointF RenderArea::compute_circle (float t)
+{
+  return QPointF (cos(t), sin(t));
 }
 
 void RenderArea::paintEvent(QPaintEvent *event)
