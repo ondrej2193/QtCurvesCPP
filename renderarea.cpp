@@ -53,6 +53,31 @@ int RenderArea::on_shape_changed ()
             mIntervalLength = 2 * M_PI;
             mStepCount = 512;
         break;
+        case Elipse:
+            mScale = 75;
+            mIntervalLength = 2 * M_PI;
+            mStepCount = 256;
+        break;
+        case Flower1:
+            mScale = 75;
+            mIntervalLength = 2 * M_PI;
+            mStepCount = 256;
+        break;
+        case Flower2:
+            mScale = 75;
+            mIntervalLength = 2 * M_PI;
+            mStepCount = 256;
+        break;
+        case Starfish:
+            mScale = 75;
+            mIntervalLength = 2 * M_PI;
+            mStepCount = 256;
+        break;
+        case Fancy:
+            mScale = 10;
+            mIntervalLength = 12 * M_PI;
+            mStepCount = 512;
+        break;
         default:
            break;
     }
@@ -79,6 +104,21 @@ QPointF RenderArea::compute  (float t)
             break;
         case Circle:
             return compute_circle (t);
+            break;
+        case Elipse:
+            return compute_elipse (t);
+            break;
+        case Flower1:
+            return compute_flower1 (t);
+            break;
+        case Flower2:
+            return compute_flower1 (t);
+            break;
+        case Starfish:
+            return compute_starfish (t);
+            break;
+        case Fancy:
+            return compute_fancy (t);
             break;
         default:
             return QPointF (0,0);
@@ -130,6 +170,39 @@ QPointF RenderArea::compute_line (float t)
 QPointF RenderArea::compute_circle (float t)
 {
   return QPointF (cos(t), sin(t));
+}
+
+QPointF RenderArea::compute_elipse (float t)
+{
+  float a = 2;
+  float b = 1.1;
+  return QPointF (a * cos(t), b * sin(t));
+}
+
+QPointF RenderArea::compute_flower1 (float t)
+{
+  float a = 2;
+  float b = 1.1;
+  return QPointF (a * cos(t), b * sin(t));
+}
+
+QPointF RenderArea::compute_flower2 (float t)
+{
+  float a = 2;
+  float b = 1.1;
+  return QPointF (a * cos(t), b * sin(t));
+}
+
+QPointF RenderArea::compute_starfish (float t)
+{
+  float a = 2;
+  float b = 1.1;
+  return QPointF (a * cos(t), b * sin(t));
+}
+
+QPointF RenderArea::compute_fancy (float t)
+{
+  return QPointF (11.0f * cos(t) - 6.0f * cos((11.0f/6.0f)*t), 11.0f * sin(t) - 6.0f * sin((11.0f/6.0f)*t));
 }
 
 void RenderArea::paintEvent(QPaintEvent *event)

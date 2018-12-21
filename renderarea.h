@@ -15,7 +15,7 @@ public:
     QSize minimumSizeHint() const Q_DECL_OVERRIDE;
     QSize sizeHint() const Q_DECL_OVERRIDE;
 
-    enum ShapeType {Astroid, Cycloid, HuygensCycloid, HypoCycloid, Line, Circle};
+    enum ShapeType {Astroid, Cycloid, HuygensCycloid, HypoCycloid, Line, Circle, Elipse, Flower1, Flower2, Starfish, Fancy};
 
     void setBackgroundColor (QColor color) {mBackGroundColor = color;}
     QColor backroundColor () const {return mBackGroundColor;}
@@ -50,6 +50,11 @@ private:
     QPointF compute_huygens (float t);
     QPointF compute_line (float t);
     QPointF compute_circle (float t);
+    QPointF compute_elipse (float t);
+    QPointF compute_flower1 (float t);
+    QPointF compute_flower2 (float t);
+    QPointF compute_starfish (float t);
+    QPointF compute_fancy (float t);
 private:
     QColor mBackGroundColor;
     QColor mShapeColor;
