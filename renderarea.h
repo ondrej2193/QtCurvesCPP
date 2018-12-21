@@ -5,6 +5,7 @@
 #include <QPaintEvent>
 #include <QPainter>
 #include <QColor>
+#include <QPen>
 
 class RenderArea : public QWidget
 {
@@ -20,8 +21,8 @@ public:
     void setBackgroundColor (QColor color) {mBackGroundColor = color;}
     QColor backroundColor () const {return mBackGroundColor;}
 
-    void setShapeColor (QColor color) {mShapeColor = color;}
-    QColor shapeColor () const {return mShapeColor;}
+    void setShapeColor (QColor color) {mPen.setColor(color);}
+    QColor shapeColor () const {return mPen.color();}
 
     void setShape (ShapeType shape) {mShape = shape; on_shape_changed ();}
     ShapeType shape () const {return mShape;}
@@ -57,7 +58,7 @@ private:
     QPointF compute_fancy (float t);
 private:
     QColor mBackGroundColor;
-    QColor mShapeColor;
+    QPen   mPen;
     ShapeType mShape;
     float mIntervalLength;
     float mScale;

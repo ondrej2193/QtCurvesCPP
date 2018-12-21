@@ -4,9 +4,10 @@
 RenderArea::RenderArea(QWidget *parent) :
             QWidget(parent),
             mBackGroundColor (0,255,255),
-            mShapeColor (0,0,0),
+            mPen (Qt::white),
             mShape (Astroid)
 {
+        mPen.setWidth(2);
         on_shape_changed();
 }
 
@@ -69,8 +70,8 @@ int RenderArea::on_shape_changed ()
             mStepCount = 256;
         break;
         case Starfish:
-            mScale = 75;
-            mIntervalLength = 2 * M_PI;
+            mScale = 25;
+            mIntervalLength = 6 * M_PI;
             mStepCount = 256;
         break;
         case Fancy:
@@ -195,9 +196,16 @@ QPointF RenderArea::compute_flower2 (float t)
 
 QPointF RenderArea::compute_starfish (float t)
 {
-  float a = 2;
-  float b = 1.1;
-  return QPointF (a * cos(t), b * sin(t));
+  float R = 5.0;
+  float r = 3.0;
+  float d = 5.0;
+
+  float x = (R-r) * cos (t) + d * cos (t * (R-r) / r);
+  float y = (R-r) * sin (t) + d * sin (t * (R-r) / r);
+
+  //return QPointF ((R-r) * cos(t) + d * cos(t*((R-r)/r)), (R-r) * sin(t) + d * sin(t*((R-r)/r)));
+
+  return QPointF (x, y);
 }
 
 QPointF RenderArea::compute_fancy (float t)
@@ -213,7 +221,7 @@ void RenderArea::paintEvent(QPaintEvent *event)
     painter.setRenderHint(QPainter::Antialiasing, true);
 
     painter.setBrush (mBackGroundColor);
-    painter.setPen(mShapeColor);
+    painter.setPen(mPen);
 
     // drawing area
     painter.drawRect(this->rect());   // draw rectangle
@@ -238,5 +246,10 @@ void RenderArea::paintEvent(QPaintEvent *event)
         painter.drawLine(pixel, prevPixel);
         prevPixel = pixel;
     }
- //   painter.end(this);
+// last line
+    QPointF point  = compute (mIntervalLength);
+    QPoint pixel;
+    pixel.setX(point.x() * mScale + center.x());
+    pixel.setY(point.y() * mScale + center.y());
+    painter.drawLine(pixel, prevPixel);
 }
